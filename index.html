@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Carlos Henrique Costa da Silva Junior</title>
+  <meta name="description" content="Portfólio de Carlos Henrique, profissional de tecnologia com foco em Análise de Dados, Automação e Infraestrutura. Buscando oportunidades júnior em Dados, QA ou Infra.">
+  <meta name="keywords" content="Carlos Henrique, Portfólio, Análise de Dados, Automação, Infraestrutura, Python, Power BI, Zabbix, QA, SQL, Docker">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://unpkg.com/scrollreveal"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'ui-sans-serif', 'system-ui']
+          },
+          colors: {
+            'brand-blue': '#0077B5',
+            'brand-green': '#25D366',
+          },
+          boxShadow: {
+            soft: '0 10px 25px rgba(0,0,0,0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .hover-card{transition:transform .35s ease, box-shadow .35s ease}
+    .hover-card:hover{transform:translateY(-6px); box-shadow:0 16px 32px rgba(0,0,0,.12)}
+    .dark .hover-card:hover{box-shadow:0 16px 32px rgba(0,0,0,.25)}
+    .chip{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(0,0,0,.08);padding:.4rem .7rem;border-radius:999px; font-size: 0.875rem;}
+    .dark .chip{border-color:rgba(255,255,255,.12)}
+    .lang-btn.active, .nav-active {font-weight:700; color: #2563eb;}
+    .dark .lang-btn.active, .dark .nav-active {color: #3b82f6;}
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 antialiased font-sans">
+
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/80 dark:bg-gray-900/70 backdrop-blur border-b border-gray-100 dark:border-gray-800">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="font-semibold tracking-tight">Carlos Henrique</a>
+      <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+      <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
+        <li><a href="#about" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_about">Sobre</a></li>
+        <li><a href="#experience" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_experience">Experiência</a></li>
+        <li><a href="#projects" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_projects">Projetos</a></li>
+        <li><a href="#skills" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_skills">Habilidades</a></li>
+        <li><a href="#certifications" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_certifications">Certificações</a></li>
+        <li><a href="#contact" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_contact">Contato</a></li>
+        <li class="flex items-center gap-4 pl-4">
+          <a class="hover:text-brand-blue" href="https://www.linkedin.com/in/carlos-henrique-junior" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin text-lg"></i></a>
+          <a class="hover:text-gray-900 dark:hover:text-white" href="https://github.com/baxinhodull" target="_blank" aria-label="GitHub"><i class="fab fa-github text-lg"></i></a>
+          <a class="hover:text-brand-green" href="https://wa.me/5521988835047" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp text-lg"></i></a>
+          <div class="flex items-center gap-1 text-xs ml-2">
+            <button id="lang-pt" class="lang-btn p-1">PT</button>
+            <span class="text-gray-300 dark:text-gray-600">|</span>
+            <button id="lang-en" class="lang-btn p-1">EN</button>
+          </div>
+          <button id="themeToggle" class="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Alternar tema">
+            <i id="iconMoon" class="fa-solid fa-moon"></i>
+            <i id="iconSun" class="fa-solid fa-sun hidden"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+    <div id="drawer" class="md:hidden hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
+      <ul class="px-4 py-3 space-y-2 text-sm">
+        <li><a class="drawer-link block py-2" href="#about" data-key="nav_about_mobile">Sobre</a></li>
+        <li><a class="drawer-link block py-2" href="#experience" data-key="nav_experience_mobile">Experiência</a></li>
+        <li><a class="drawer-link block py-2" href="#projects" data-key="nav_projects_mobile">Projetos</a></li>
+        <li><a class="drawer-link block py-2" href="#skills" data-key="nav_skills_mobile">Habilidades</a></li>
+        <li><a class="drawer-link block py-2" href="#certifications" data-key="nav_certifications_mobile">Certificações</a></li>
+        <li><a class="drawer-link block py-2" href="#contact" data-key="nav_contact_mobile">Contato</a></li>
+        <li class="flex items-center justify-between pt-2">
+            <div class="flex items-center gap-4">
+                <a class="hover:text-brand-blue" href="https://www.linkedin.com/in/carlos-henrique-junior" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+                <a class="hover:text-gray-900 dark:hover:text-white" href="https://github.com/baxinhodull" target="_blank" aria-label="GitHub"><i class="fab fa-github text-xl"></i></a>
+                <a class="hover:text-brand-green" href="https://wa.me/5521988835047" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp text-xl"></i></a>
+            </div>
+            <div class="flex items-center gap-1 text-xs">
+                <button id="lang-pt-mobile" class="lang-btn p-1">PT</button>
+                <span class="text-gray-300 dark:text-gray-600">|</span>
+                <button id="lang-en-mobile" class="lang-btn p-1">EN</button>
+            </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 items-center gap-12 min-h-screen pt-16">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">Carlos Henrique C. da Silva Junior</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300" data-key="hero_description">Profissional dinâmico em <strong>Suporte Técnico</strong>, <strong>Análise de Dados</strong> e <strong>Automação</strong>. Busco oportunidades júnior em <strong>Dados</strong>, <strong>QA</strong> ou <strong>Infra</strong>. Stack: Power BI, Python, SQL, Zabbix, Grafana.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact" class="px-5 py-3 rounded-xl bg-blue-600 text-white font-medium shadow-soft hover:bg-blue-700 transition-colors" data-key="hero_btn_contact">Entrar em Contato</a>
+          <a href="#projects" class="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors" data-key="hero_btn_projects">Ver Projetos</a>
+        </div>
+      </div>
+      <div class="relative flex items-center justify-center">
+        <div class="absolute inset-0 -m-8 blur-3xl bg-gradient-to-tr from-blue-500/10 to-teal-400/10 pointer-events-none"></div>
+        <img src="D:\portifolio\IMG_1468.jpg" alt="Foto de Carlos Henrique" class="relative w-full max-w-sm rounded-3xl object-cover border-4 border-white dark:border-gray-800 shadow-soft">
+      </div>
+    </section>
+    
+    <section id="about" class="py-16 md:py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-10 text-center" data-key="about_title">Sobre Mim</h2>
+            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover-card">
+                <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300" data-key="about_desc">
+                    Com uma base sólida em infraestrutura e suporte técnico, tomei a decisão estratégica de focar minha carreira em <strong>Análise de Dados</strong>. Minha paixão é transformar dados brutos em insights que resolvem problemas reais de negócio.
+                    <br><br>
+                    Hoje, utilizo <strong>Python, SQL e Power BI</strong> para automatizar processos, extrair e modelar dados, e criar dashboards interativos que dão suporte à tomada de decisões. Busco uma oportunidade júnior onde eu possa aplicar meu foco em solução de problemas e crescer em um ambiente orientado a dados.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 md:py-20 bg-gray-100 dark:bg-gray-800/50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-12 text-center" data-key="experience_title">Experiência Profissional</h2>
+        <div class="relative max-w-3xl mx-auto">
+          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700"></div>
+          <div class="space-y-12">
+            <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
+              <div class="md:col-start-1 md:text-right md:pr-10">
+                <p class="text-sm text-gray-500" data-key="exp1_date">Março de 2024 – Atualmente</p>
+                <h3 class="font-semibold text-lg mt-1" data-key="exp1_role">Estagiário de TI | PGE-RJ</h3>
+              </div>
+              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-2 mt-4 md:mt-0 ml-12 md:ml-0 md:pl-10">
+                  <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp1_desc"></ul>
+              </div>
+            </article>
+            <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
+              <div class="md:col-start-2 md:pl-10">
+                 <p class="text-sm text-gray-500" data-key="exp2_date">Dezembro de 2021 – Dezembro de 2023</p>
+                <h3 class="font-semibold text-lg mt-1" data-key="exp2_role">Técnico de Suporte Júnior | CREB</h3>
+              </div>
+              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-1 mt-4 md:mt-0 ml-12 md:ml-0 md:text-right md:pr-10 md:order-first">
+                 <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp2_desc"></ul>
+              </div>
+            </article>
+             <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
+              <div class="md:col-start-1 md:text-right md:pr-10">
+                <p class="text-sm text-gray-500">2020</p>
+                <h3 class="font-semibold text-lg mt-1" data-key="exp3_role">Estágio Técnico em Informática</h3>
+              </div>
+              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-2 mt-4 md:mt-0 ml-12 md:ml-0 md:pl-10">
+                  <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp3_desc"></ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between gap-6 mb-10">
+          <h2 class="text-3xl font-bold" data-key="projects_title">Projetos em Destaque</h2>
+          <a href="https://github.com/baxinhodull" target="_blank" class="text-sm text-blue-600 hover:underline" data-key="projects_all">Ver todos no GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+        </div>
+        <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <article class="bg-white dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 hover-card">
+            <h3 class="font-semibold text-lg mb-2" data-key="proj1_title">Dashboard de Salários — Área de Dados</h3>
+            <p class="text-gray-600 dark:text-gray-300" data-key="proj1_desc">Dashboard interativo em Power BI para análise salarial detalhada no setor de dados, revelando tendências e insights.</p>
+            <a class="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline" target="_blank" href="https://github.com/baxinhodull/Dashboard_de_Salarios_Area_de_Dados"><span data-key="proj_view">Ver no GitHub</span> <i class="fab fa-github"></i></a>
+          </article>
+          <article class="bg-white dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 hover-card">
+            <h3 class="font-semibold text-lg mb-2" data-key="proj2_title">Lista de Presença Online — UNESA</h3>
+            <p class="text-gray-600 dark:text-gray-300" data-key="proj2_desc">Sistema web completo para controle de presença, utilizando Next.js, NestJS e Docker para uma solução moderna e conteinerizada.</p>
+            <a class="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline" target="_blank" href="https://github.com/baxinhodull/ltd_nova_america_2025_1"><span data-key="proj_view_2">Ver no GitHub</span> <i class="fab fa-github"></i></a>
+          </article>
+          <article class="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-dashed border-gray-200 dark:border-gray-700 flex flex-col justify-center text-center">
+            <!--<h3 class="font-medium" data-key="proj_next_title">Seu próximo projeto aqui</h3>'''-->
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1" data-key="proj_next_desc">Adicione mais cases conforme publicar no GitHub.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <section id="github-stats" class="py-16 md:py-20 bg-gray-100 dark:bg-gray-800/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-10" data-key="github_title">Estatísticas do GitHub</h2>
+            <div class="flex flex-wrap justify-center items-center gap-8">
+                <img class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api?username=baxinhodull&include_all_commits=true&show_icons=true&theme=nightowl&rank_icon=github&hide_border=true" alt="Estatísticas do GitHub de Carlos Henrique"/>
+                <img class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=baxinhodull&layout=compact&theme=nightowl&hide_border=true" alt="Linguagens mais usadas por Carlos Henrique no GitHub"/>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12" data-key="skills_title">Habilidades Técnicas</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
+              <h3 class="font-semibold mb-4" data-key="skill_cat1"></h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Power BI</span><span class="chip">Python (Pandas)</span><span class="chip">SQL</span><span class="chip">ETL</span><span class="chip">Excel</span>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
+              <h3 class="font-semibold mb-4" data-key="skill_cat2"></h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">Shell Script</span><span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Docker</span><span class="chip">Linux</span>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
+              <h3 class="font-semibold mb-4" data-key="skill_cat3"></h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="py-16 md:py-20 bg-gray-100 dark:bg-gray-800/50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-10" data-key="cert_title">Certificações e Formação</h2>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+             <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
+                <summary class="font-semibold cursor-pointer" data-key="cert_cat1_title">Análise de Dados e Business Intelligence</summary>
+                <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat1_list"></ul>
+            </details>
+            <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
+                <summary class="font-semibold cursor-pointer" data-key="cert_cat2_title">Infraestrutura, DevOps & Cibersegurança</summary>
+                <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat2_list"></ul>
+            </details>
+            <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
+                <summary class="font-semibold cursor-pointer" data-key="cert_cat3_title">Desenvolvimento & Banco de Dados</summary>
+                <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat3_list"></ul>
+            </details>
+            <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
+              <h3 class="font-semibold" data-key="cert_academic_title">Formação Acadêmica</h3>
+              <ul class="list-disc list-inside mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                  <li data-key="cert_academic_1"></li>
+                  <li data-key="cert_academic_2"></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 md:py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4" data-key="contact_title">Vamos Conversar!</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8" data-key="contact_desc">Estou aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato por e-mail ou WhatsApp.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+           <a href="mailto:chjunior05@gmail.com" class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 hover:scale-105 w-full sm:w-auto">
+               <i class="fa-solid fa-envelope"></i> <span data-key="contact_btn_email">Enviar E-mail</span>
+           </a>
+           <a href="https://wa.me/5521988835047" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-green hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-transform duration-300 hover:scale-105 w-full sm:w-auto">
+               <i class="fab fa-whatsapp"></i> <span data-key="contact_btn_whatsapp">Chamar no WhatsApp</span>
+           </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-100 dark:border-gray-800 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-600 dark:text-gray-400">
+      <div class="flex justify-center items-center space-x-4 mb-4">
+           <a href="https://www.linkedin.com/in/carlos-henrique-junior" target="_blank" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+           <span>•</span>
+           <a href="https://github.com/baxinhodull" target="_blank" class="hover:text-blue-600 transition-colors">GitHub</a>
+           <span>•</span>
+           <a href="https://wa.me/5521988835047" target="_blank" class="hover:text-blue-600 transition-colors">WhatsApp</a>
+           <span>•</span>
+           <a href="mailto:chjunior05@gmail.com" class="hover:text-blue-600 transition-colors">E-mail</a>
+      </div>
+      <p data-key="footer_copy">&copy; <span id="current-year"></span> Carlos Henrique. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button id="toTop" class="fixed bottom-6 right-6 p-3 rounded-full shadow-soft bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-gray-700 dark:text-gray-200 hidden opacity-0 transition-opacity duration-300" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DICTIONARY FOR TRANSLATIONS ---
+        const translations = {
+            'pt': {
+                nav_about: 'Sobre', nav_experience: 'Experiência', nav_projects: 'Projetos', nav_skills: 'Habilidades', nav_certifications: 'Certificações', nav_contact: 'Contato',
+                nav_about_mobile: 'Sobre', nav_experience_mobile: 'Experiência', nav_projects_mobile: 'Projetos', nav_skills_mobile: 'Habilidades', nav_certifications_mobile: 'Certificações', nav_contact_mobile: 'Contato',
+                hero_description: 'Estudante de Ciência da Computação com experiência em Análise de Dados e Automação. Transformo dados em insights com Python, SQL e Power BI e busco minha primeira oportunidade como júnior na área de Dados',
+                hero_btn_contact: 'Entrar em Contato', hero_btn_projects: 'Ver Projetos',
+                about_title: 'Sobre Mim',
+                about_desc: `Com uma base sólida em infraestrutura e suporte técnico, tomei a decisão estratégica de focar minha carreira em <strong>Análise de Dados</strong>. Minha paixão é transformar dados brutos em insights que resolvem problemas reais de negócio.<br><br>Hoje, utilizo <strong>Python, SQL e Power BI</strong> para automatizar processos, extrair e modelar dados, e criar dashboards interativos que dão suporte à tomada de decisões. Busco uma oportunidade júnior onde eu possa aplicar meu foco em solução de problemas e crescer em um ambiente orientado a dados.`,
+                experience_title: 'Experiência Profissional',
+                exp1_date: 'Março de 2024 – Atualmente', exp1_role: 'Estagiário de TI | PGE-RJ',
+                exp1_desc: `<li>Desenvolvimento de dashboards em <strong>Power BI</strong> para análise de métricas operacionais.</li><li>Criação de scripts em <strong>Python e Shell</strong> para automação de coleta e processamento de dados.</li><li>Administração e extração de dados de sistemas de monitoramento (Zabbix, Grafana).</li>`,
+                exp2_date: 'Dezembro de 2021 – Dezembro de 2023', exp2_role: 'Técnico de Suporte Júnior | CREB',
+                exp2_desc: `<li>Gerenciei o suporte a sistemas de negócio (Tasy, GLPI), garantindo a integridade dos dados.</li><li>Mantive a infraestrutura de hardware e redes, a base para todo o fluxo de dados da empresa.</li>`,
+                exp3_role: 'Estágio Técnico em Informática',
+                exp3_desc: `<li>Manutenção preventiva e corretiva de computadores.</li><li>Ministração de cursos básicos do Pacote Office.</li>`,
+                projects_title: 'Projetos em Destaque', projects_all: 'Ver todos no GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>',
+                proj1_title: 'Dashboard de Salários — Área de Dados',
+                proj1_desc: 'Dashboard interativo em Power BI para análise salarial detalhada no setor de dados, revelando tendências e insights.',
+                proj_view: 'Ver no GitHub',
+                proj2_title: 'Lista de Presença Online — UNESA',
+                proj2_desc: 'Sistema web completo para controle de presença, utilizando Next.js, NestJS e Docker para uma solução moderna e conteinerizada.',
+                proj_view_2: 'Ver no GitHub',
+                <!-- proj_next_title: 'Seu próximo projeto aqui', proj_next_desc: 'Adicione mais cases conforme publicar no GitHub.',-->
+                github_title: 'Estatísticas do GitHub',
+                skills_title: 'Habilidades Técnicas',
+                skill_cat1: '<i class="fa-solid fa-chart-line mr-2 text-blue-500"></i>Análise de Dados & BI',
+                skill_cat2: '<i class="fa-solid fa-server mr-2 text-blue-500"></i>Automação & Infraestrutura',
+                skill_cat3: '<i class="fa-solid fa-code mr-2 text-blue-500"></i>Desenvolvimento Web',
+                cert_title: 'Certificações e Formação',
+                cert_cat1_title: 'Análise de Dados e Business Intelligence',
+                cert_cat1_list: '<li>Formação Power BI – DIO.me</li><li>Python para Cloud, IoT e Big Data – Estácio</li><li>Análise de Dados para Tomada de Decisão – Estácio</li><li>Imersão de Dados com Python – Alura</li>',
+                cert_cat2_title: 'Infraestrutura, DevOps & Cibersegurança',
+                cert_cat2_list: '<li>Zabbix Avançado – Udemy</li><li>Docker Essentials – DIO.me</li><li>Fundamentos de Redes de Computadores – DIO.me</li><li>Princípios da Cibersegurança – DIO.me</li>',
+                cert_cat3_title: 'Desenvolvimento & Banco de Dados',
+                cert_cat3_list: '<li>SQL – Udemy & DIO.me</li><li>Desenvolvimento Web com Python e Django – DIO.ME</li><li>Programação para Internet – Estácio</li>',
+                cert_academic_title: 'Formação Acadêmica',
+                cert_academic_1: 'Ciência da Computação – Universidade Estácio de Sá (Cursando)',
+                cert_academic_2: 'Técnico em Informática – CIOB (2018)',
+                contact_title: 'Vamos Conversar!',
+                contact_desc: 'Estou aberto a novas oportunidades e colaborações. Sinta-se à vontade para entrar em contato por e-mail ou WhatsApp.',
+                contact_btn_email: 'Enviar E-mail',
+                contact_btn_whatsapp: 'Chamar no WhatsApp',
+                footer_copy: `&copy; ${new Date().getFullYear()} Carlos Henrique. Todos os direitos reservados.`
+            },
+            'en': {
+                nav_about: 'About', nav_experience: 'Experience', nav_projects: 'Projects', nav_skills: 'Skills', nav_certifications: 'Certifications', nav_contact: 'Contact',
+                nav_about_mobile: 'About', nav_experience_mobile: 'Experience', nav_projects_mobile: 'Projects', nav_skills_mobile: 'Skills', nav_certifications_mobile: 'Certifications', nav_contact_mobile: 'Contact',
+                hero_description: 'Dynamic professional in <strong>Technical Support</strong>, <strong>Data Analysis</strong>, and <strong>Automation</strong>. Seeking junior opportunities in <strong>Data</strong>, <strong>QA</strong>, or <strong>Infra</strong>. Stack: Power BI, Python, SQL, Zabbix, Grafana.',
+                hero_btn_contact: 'Get in Touch', hero_btn_projects: 'View Projects',
+                about_title: 'About Me',
+                about_desc: `With a solid background in IT infrastructure and technical support, I made a strategic decision to focus my career on <strong>Data Analysis</strong>. My passion is to transform raw data into insights that solve real business problems.<br><br>Today, I use <strong>Python, SQL, and Power BI</strong> to automate processes, extract and model data, and create interactive dashboards that support decision-making. I am seeking a junior opportunity where I can apply my problem-solving focus and grow in a data-driven environment.`,
+                experience_title: 'Professional Experience',
+                exp1_date: 'March 2024 – Present', exp1_role: 'IT Intern | PGE-RJ',
+                exp1_desc: `<li>Development of <strong>Power BI</strong> dashboards for operational metrics analysis.</li><li>Creation of scripts in <strong>Python and Shell</strong> for automating data collection and processing.</li><li>Administration and data extraction from monitoring systems (Zabbix, Grafana).</li>`,
+                exp2_date: 'December 2021 – December 2023', exp2_role: 'Junior Support Technician | CREB',
+                exp2_desc: `<li>Managed support for business systems (Tasy, GLPI), ensuring data integrity.</li><li>Maintained the hardware and network infrastructure, the foundation for the company's entire data flow.</li>`,
+                exp3_role: 'IT Technician Intern',
+                exp3_desc: `<li>Preventive and corrective maintenance of computers.</li><li>Delivered basic courses on the Microsoft Office suite.</li>`,
+                projects_title: 'Featured Projects', projects_all: 'See all on GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>',
+                proj1_title: 'Salary Dashboard — Data Area',
+                proj1_desc: 'Interactive Power BI dashboard for detailed salary analysis in the data sector, revealing trends and insights.',
+                proj_view: 'View on GitHub',
+                proj2_title: 'Online Attendance List — UNESA',
+                proj2_desc: 'Complete web system for attendance control, using Next.js, NestJS, and Docker for a modern and containerized solution.',
+                proj_view_2: 'View on GitHub',
+                proj_next_title: 'Your next project here', proj_next_desc: 'Add more case studies as you publish them on GitHub.',
+                github_title: 'GitHub Stats',
+                skills_title: 'Technical Skills',
+                skill_cat1: '<i class="fa-solid fa-chart-line mr-2 text-blue-500"></i>Data Analysis & BI',
+                skill_cat2: '<i class="fa-solid fa-server mr-2 text-blue-500"></i>Automation & Infrastructure',
+                skill_cat3: '<i class="fa-solid fa-code mr-2 text-blue-500"></i>Web Development',
+                cert_title: 'Certifications & Education',
+                cert_cat1_title: 'Data Analysis and Business Intelligence',
+                cert_cat1_list: '<li>Power BI Training – DIO.me</li><li>Python for Cloud, IoT, and Big Data – Estácio</li><li>Data Analysis for Decision Making – Estácio</li><li>Data Immersion with Python – Alura</li>',
+                cert_cat2_title: 'Infrastructure, DevOps & Cybersecurity',
+                cert_cat2_list: '<li>Advanced Zabbix – Udemy</li><li>Docker Essentials – DIO.me</li><li>Computer Network Fundamentals – DIO.me</li><li>Cybersecurity Principles – DIO.me</li>',
+                cert_cat3_title: 'Development & Databases',
+                cert_cat3_list: '<li>SQL – Udemy & DIO.me</li><li>Web Development with Python and Django – DIO.ME</li><li>Internet Programming – Estácio</li>',
+                cert_academic_title: 'Academic Education',
+                cert_academic_1: 'Computer Science – Estácio de Sá University (Ongoing)',
+                cert_academic_2: 'IT Technician – CIOB (2018)',
+                contact_title: "Let's Talk!",
+                contact_desc: "I'm open to new opportunities and collaborations. Feel free to contact me via email or WhatsApp.",
+                contact_btn_email: 'Send Email',
+                contact_btn_whatsapp: 'Chat on WhatsApp',
+                footer_copy: `&copy; ${new Date().getFullYear()} Carlos Henrique. All rights reserved.`
+            }
+        };
+
+        // --- LANGUAGE SWITCHER ---
+        const langButtons = document.querySelectorAll('.lang-btn');
+        function setLanguage(lang) {
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+            const translation = translations[lang];
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translation[key]) element.innerHTML = translation[key];
+            });
+            localStorage.setItem('language', lang);
+            langButtons.forEach(btn => btn.id.includes(lang) ? btn.classList.add('active') : btn.classList.remove('active'));
+        }
+        langButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.id.includes('en') ? 'en' : 'pt')));
+        
+        // --- THEME SWITCHER ---
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const iconMoon = document.getElementById('iconMoon');
+        const iconSun = document.getElementById('iconSun');
+        function setTheme(mode){
+          if(mode==='dark'){ root.classList.add('dark'); iconMoon.classList.add('hidden'); iconSun.classList.remove('hidden'); }
+          else { root.classList.remove('dark'); iconSun.classList.add('hidden'); iconMoon.classList.remove('hidden'); }
+          localStorage.setItem('theme', mode);
+        }
+        themeToggle.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
+        
+        // --- MOBILE MENU ---
+        const menuBtn = document.getElementById('menuBtn');
+        const drawer = document.getElementById('drawer');
+        menuBtn.addEventListener('click', () => drawer.classList.toggle('hidden'));
+        drawer.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', () => drawer.classList.add('hidden')));
+
+        // --- SCROLLSPY (ACTIVE NAV LINK) ---
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('#navLinks a, #drawer a.drawer-link');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('nav-active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('nav-active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+        sections.forEach(section => observer.observe(section));
+
+        // --- SCROLL REVEAL ---
+        const sr = ScrollReveal({ distance: '40px', duration: 1000, easing: 'ease-out', cleanup: true });
+        sr.reveal('#home > .container > div:first-child', { origin: 'left' });
+        sr.reveal('#home > .container > div:last-child', { origin: 'right', delay: 100 });
+        sr.reveal('section h2, .hover-card, #github-stats img, #experience article', { origin: 'bottom', interval: 100 });
+        
+        // --- BACK TO TOP BUTTON ---
+        const toTop = document.getElementById('toTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                toTop.classList.remove('hidden');
+                toTop.classList.add('opacity-100');
+            } else {
+                toTop.classList.remove('opacity-100');
+                toTop.classList.add('hidden');
+            }
+        });
+        toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+        
+        // --- INITIALIZATION ---
+        (function init() {
+            // Set year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            // Set initial language
+            const savedLang = localStorage.getItem('language');
+            const browserLang = navigator.language.split('-')[0];
+            setLanguage(savedLang || (browserLang === 'en' ? 'en' : 'pt'));
+            // Set initial theme
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+        })();
+    });
+  </script>
+</body>
+</html>
