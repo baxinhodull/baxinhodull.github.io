@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/scrollreveal"></script>
 
   <script>
@@ -29,6 +29,10 @@
           },
           boxShadow: {
             soft: '0 10px 25px rgba(0,0,0,0.08)'
+          },
+          maxHeight: {
+            '96': '24rem',
+            'screen': '100vh',
           }
         }
       }
@@ -50,7 +54,9 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-white/80 dark:bg-gray-900/70 backdrop-blur border-b border-gray-100 dark:border-gray-800">
     <nav class="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#home" class="font-semibold tracking-tight">Carlos Henrique</a>
-      <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
+      <button id="menuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Abrir menu" aria-expanded="false" aria-controls="drawer">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
       <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
         <li><a href="#about" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_about">Sobre</a></li>
         <li><a href="#experience" class="hover:text-blue-600 transition-colors duration-200" data-key="nav_experience">Experiência</a></li>
@@ -74,8 +80,8 @@
         </li>
       </ul>
     </nav>
-    <div id="drawer" class="md:hidden hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900">
-      <ul class="px-4 py-3 space-y-2 text-sm">
+    <div id="drawer" class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out border-t border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-900/70 backdrop-blur">
+      <ul class="px-4 space-y-2 text-sm">
         <li><a class="drawer-link block py-2" href="#about" data-key="nav_about_mobile">Sobre</a></li>
         <li><a class="drawer-link block py-2" href="#experience" data-key="nav_experience_mobile">Experiência</a></li>
         <li><a class="drawer-link block py-2" href="#projects" data-key="nav_projects_mobile">Projetos</a></li>
@@ -99,8 +105,8 @@
   </header>
 
   <main>
-    <section id="home" class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 items-center gap-12 min-h-screen pt-16">
-      <div class="space-y-6">
+    <section id="home" class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid md:grid-cols-2 items-center gap-12 min-h-screen pt-24 md:pt-16">
+      <div class="space-y-6 order-2 md:order-1">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight">Carlos Henrique C. da Silva Junior</h1>
         <p class="text-lg text-gray-600 dark:text-gray-300" data-key="hero_description">Profissional dinâmico em <strong>Suporte Técnico</strong>, <strong>Análise de Dados</strong> e <strong>Automação</strong>. Busco oportunidades júnior em <strong>Dados</strong>, <strong>QA</strong> ou <strong>Infra</strong>. Stack: Power BI, Python, SQL, Zabbix, Grafana.</p>
         <div class="flex flex-wrap gap-3">
@@ -108,9 +114,12 @@
           <a href="#projects" class="px-5 py-3 rounded-xl border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 font-medium transition-colors" data-key="hero_btn_projects">Ver Projetos</a>
         </div>
       </div>
-      <div class="relative flex items-center justify-center">
+      <div class="relative flex items-center justify-center order-1 md:order-2">
         <div class="absolute inset-0 -m-8 blur-3xl bg-gradient-to-tr from-blue-500/10 to-teal-400/10 pointer-events-none"></div>
-        <img src="D:\portifolio\IMG_1468.jpg" alt="Foto de Carlos Henrique" class="relative w-full max-w-sm rounded-3xl object-cover border-4 border-white dark:border-gray-800 shadow-soft">
+        <img src="IMG_1469.jpg" 
+             alt="Foto de Carlos Henrique" 
+             class="relative w-full max-w-sm rounded-3xl object-cover border-4 border-white dark:border-gray-800 shadow-soft"
+             onerror="this.onerror=null;this.src='https://placehold.co/400x400/EBF4FF/1E293B?text=Image+Not+Found&font=poppins';">
       </div>
     </section>
     
@@ -131,26 +140,26 @@
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold mb-12 text-center" data-key="experience_title">Experiência Profissional</h2>
         <div class="relative max-w-3xl mx-auto">
-          <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-700"></div>
+          <div class="absolute left-3 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
           <div class="space-y-12">
             <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
               <div class="md:col-start-1 md:text-right md:pr-10">
                 <p class="text-sm text-gray-500" data-key="exp1_date">Março de 2024 – Atualmente</p>
                 <h3 class="font-semibold text-lg mt-1" data-key="exp1_role">Estagiário de TI | PGE-RJ</h3>
               </div>
-              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
-              <div class="md:col-start-2 mt-4 md:mt-0 ml-12 md:ml-0 md:pl-10">
+              <div class="absolute left-0 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-2 mt-4 md:mt-0 ml-10 md:ml-0 md:pl-10">
                   <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp1_desc"></ul>
               </div>
             </article>
             <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
               <div class="md:col-start-2 md:pl-10">
-                 <p class="text-sm text-gray-500" data-key="exp2_date">Dezembro de 2021 – Dezembro de 2023</p>
+                  <p class="text-sm text-gray-500" data-key="exp2_date">Dezembro de 2021 – Dezembro de 2023</p>
                 <h3 class="font-semibold text-lg mt-1" data-key="exp2_role">Técnico de Suporte Júnior | CREB</h3>
               </div>
-              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
-              <div class="md:col-start-1 mt-4 md:mt-0 ml-12 md:ml-0 md:text-right md:pr-10 md:order-first">
-                 <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp2_desc"></ul>
+              <div class="absolute left-0 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-1 mt-4 md:mt-0 ml-10 md:ml-0 md:text-right md:pr-10 md:order-first">
+                  <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp2_desc"></ul>
               </div>
             </article>
              <article class="relative md:grid md:grid-cols-2 md:gap-10 items-start">
@@ -158,8 +167,8 @@
                 <p class="text-sm text-gray-500">2020</p>
                 <h3 class="font-semibold text-lg mt-1" data-key="exp3_role">Estágio Técnico em Informática</h3>
               </div>
-              <div class="absolute left-4 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
-              <div class="md:col-start-2 mt-4 md:mt-0 ml-12 md:ml-0 md:pl-10">
+              <div class="absolute left-0 top-1 md:left-1/2 -ml-3 z-10 w-6 h-6 rounded-full bg-blue-600 border-4 border-gray-100 dark:border-gray-800/50"></div>
+              <div class="md:col-start-2 mt-4 md:mt-0 ml-10 md:ml-0 md:pl-10">
                   <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300" data-key="exp3_desc"></ul>
               </div>
             </article>
@@ -170,24 +179,35 @@
 
     <section id="projects" class="py-16 md:py-20">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between gap-6 mb-10">
+        <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
           <h2 class="text-3xl font-bold" data-key="projects_title">Projetos em Destaque</h2>
-          <a href="https://github.com/baxinhodull" target="_blank" class="text-sm text-blue-600 hover:underline" data-key="projects_all">Ver todos no GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+          <a href="https://github.com/baxinhodull" target="_blank" class="text-sm text-blue-600 hover:underline shrink-0" data-key="projects_all">Ver todos no GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
         </div>
         <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- Projeto 1 -->
           <article class="bg-white dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 hover-card">
             <h3 class="font-semibold text-lg mb-2" data-key="proj1_title">Dashboard de Salários — Área de Dados</h3>
             <p class="text-gray-600 dark:text-gray-300" data-key="proj1_desc">Dashboard interativo em Power BI para análise salarial detalhada no setor de dados, revelando tendências e insights.</p>
             <a class="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline" target="_blank" href="https://github.com/baxinhodull/Dashboard_de_Salarios_Area_de_Dados"><span data-key="proj_view">Ver no GitHub</span> <i class="fab fa-github"></i></a>
           </article>
+          
+          <!-- Projeto 2 -->
           <article class="bg-white dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 hover-card">
             <h3 class="font-semibold text-lg mb-2" data-key="proj2_title">Lista de Presença Online — UNESA</h3>
             <p class="text-gray-600 dark:text-gray-300" data-key="proj2_desc">Sistema web completo para controle de presença, utilizando Next.js, NestJS e Docker para uma solução moderna e conteinerizada.</p>
             <a class="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline" target="_blank" href="https://github.com/baxinhodull/ltd_nova_america_2025_1"><span data-key="proj_view_2">Ver no GitHub</span> <i class="fab fa-github"></i></a>
           </article>
+
+          <!-- Projeto 3 (Novo) -->
+          <article class="bg-white dark:bg-gray-800/50 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 hover-card">
+            <h3 class="font-semibold text-lg mb-2" data-key="proj3_title">Desafio Backend — Voluntários</h3>
+            <p class="text-gray-600 dark:text-gray-300" data-key="proj3_desc">API RESTful desenvolvida para o desafio de voluntários, focada em organização, arquitetura backend e boas práticas.</p>
+            <a class="inline-flex items-center gap-2 mt-4 text-blue-600 hover:underline" target="_blank" href="https://github.com/baxinhodull/desafio-backend-voluntarios"><span data-key="proj_view_3">Ver no GitHub</span> <i class="fab fa-github"></i></a>
+          </article>
+
+          <!-- Placeholder -->
           <article class="bg-white/60 dark:bg-gray-800/60 rounded-2xl p-6 border border-dashed border-gray-200 dark:border-gray-700 flex flex-col justify-center text-center">
-            <!--<h3 class="font-medium" data-key="proj_next_title">Seu próximo projeto aqui</h3>'''-->
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1" data-key="proj_next_desc">Adicione mais cases conforme publicar no GitHub.</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400" data-key="proj_next_desc">Mais projetos em breve...</p>
           </article>
         </div>
       </div>
@@ -197,8 +217,8 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-center mb-10" data-key="github_title">Estatísticas do GitHub</h2>
             <div class="flex flex-wrap justify-center items-center gap-8">
-                <img class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api?username=baxinhodull&include_all_commits=true&show_icons=true&theme=nightowl&rank_icon=github&hide_border=true" alt="Estatísticas do GitHub de Carlos Henrique"/>
-                <img class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=baxinhodull&layout=compact&theme=nightowl&hide_border=true" alt="Linguagens mais usadas por Carlos Henrique no GitHub"/>
+                <img loading="lazy" decoding="async" class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api?username=baxinhodull&include_all_commits=true&show_icons=true&theme=nightowl&rank_icon=github&hide_border=true" alt="Estatísticas do GitHub de Carlos Henrique"/>
+                <img loading="lazy" decoding="async" class="rounded-lg shadow-soft" height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=baxinhodull&layout=compact&theme=nightowl&hide_border=true" alt="Linguagens mais usadas por Carlos Henrique no GitHub"/>
             </div>
         </div>
     </section>
@@ -208,19 +228,19 @@
         <h2 class="text-3xl font-bold text-center mb-12" data-key="skills_title">Habilidades Técnicas</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
-              <h3 class="font-semibold mb-4" data-key="skill_cat1"></h3>
+              <h3 class="font-semibold mb-4 flex items-center" data-key="skill_cat1"></h3>
               <div class="flex flex-wrap gap-2">
                 <span class="chip">Power BI</span><span class="chip">Python (Pandas)</span><span class="chip">SQL</span><span class="chip">ETL</span><span class="chip">Excel</span>
               </div>
             </div>
             <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
-              <h3 class="font-semibold mb-4" data-key="skill_cat2"></h3>
+              <h3 class="font-semibold mb-4 flex items-center" data-key="skill_cat2"></h3>
               <div class="flex flex-wrap gap-2">
                 <span class="chip">Shell Script</span><span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Docker</span><span class="chip">Linux</span>
               </div>
             </div>
             <div class="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
-              <h3 class="font-semibold mb-4" data-key="skill_cat3"></h3>
+              <h3 class="font-semibold mb-4 flex items-center" data-key="skill_cat3"></h3>
               <div class="flex flex-wrap gap-2">
                 <span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">JavaScript</span><span class="chip">Tailwind CSS</span>
               </div>
@@ -233,16 +253,16 @@
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-10" data-key="cert_title">Certificações e Formação</h2>
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-             <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
-                <summary class="font-semibold cursor-pointer" data-key="cert_cat1_title">Análise de Dados e Business Intelligence</summary>
+            <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
+                <summary class="font-semibold cursor-pointer list-none flex justify-between items-center" data-key="cert_cat1_title">Análise de Dados e Business Intelligence <i class="fa-solid fa-chevron-down transition-transform duration-300"></i></summary>
                 <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat1_list"></ul>
             </details>
             <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
-                <summary class="font-semibold cursor-pointer" data-key="cert_cat2_title">Infraestrutura, DevOps & Cibersegurança</summary>
+                <summary class="font-semibold cursor-pointer list-none flex justify-between items-center" data-key="cert_cat2_title">Infraestrutura, DevOps & Cibersegurança <i class="fa-solid fa-chevron-down transition-transform duration-300"></i></summary>
                 <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat2_list"></ul>
             </details>
             <details class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card open:shadow-lg">
-                <summary class="font-semibold cursor-pointer" data-key="cert_cat3_title">Desenvolvimento & Banco de Dados</summary>
+                <summary class="font-semibold cursor-pointer list-none flex justify-between items-center" data-key="cert_cat3_title">Desenvolvimento & Banco de Dados <i class="fa-solid fa-chevron-down transition-transform duration-300"></i></summary>
                 <ul class="list-disc list-inside mt-4 space-y-1 text-sm text-gray-600 dark:text-gray-300" data-key="cert_cat3_list"></ul>
             </details>
             <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 hover-card">
@@ -275,19 +295,19 @@
   <footer class="border-t border-gray-100 dark:border-gray-800 py-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-600 dark:text-gray-400">
       <div class="flex justify-center items-center space-x-4 mb-4">
-           <a href="https://www.linkedin.com/in/carlos-henrique-junior" target="_blank" class="hover:text-blue-600 transition-colors">LinkedIn</a>
-           <span>•</span>
-           <a href="https://github.com/baxinhodull" target="_blank" class="hover:text-blue-600 transition-colors">GitHub</a>
-           <span>•</span>
-           <a href="https://wa.me/5521988835047" target="_blank" class="hover:text-blue-600 transition-colors">WhatsApp</a>
-           <span>•</span>
-           <a href="mailto:chjunior05@gmail.com" class="hover:text-blue-600 transition-colors">E-mail</a>
+          <a href="https://www.linkedin.com/in/carlos-henrique-junior" target="_blank" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+          <span>•</span>
+          <a href="https://github.com/baxinhodull" target="_blank" class="hover:text-blue-600 transition-colors">GitHub</a>
+          <span>•</span>
+          <a href="https://wa.me/5521988835047" target="_blank" class="hover:text-blue-600 transition-colors">WhatsApp</a>
+          <span>•</span>
+          <a href="mailto:chjunior05@gmail.com" class="hover:text-blue-600 transition-colors">E-mail</a>
       </div>
       <p data-key="footer_copy">&copy; <span id="current-year"></span> Carlos Henrique. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <button id="toTop" class="fixed bottom-6 right-6 p-3 rounded-full shadow-soft bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 text-gray-700 dark:text-gray-200 hidden opacity-0 transition-opacity duration-300" aria-label="Voltar ao topo">
+  <button id="toTop" class="fixed bottom-6 right-6 p-3 rounded-full shadow-soft bg-white/80 dark:bg-gray-800/70 backdrop-blur border border-gray-100 dark:border-gray-700 text-gray-700 dark:text-gray-200 opacity-0 invisible transition-all duration-300 hover:scale-110" aria-label="Voltar ao topo">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
@@ -310,13 +330,21 @@
                 exp3_role: 'Estágio Técnico em Informática',
                 exp3_desc: `<li>Manutenção preventiva e corretiva de computadores.</li><li>Ministração de cursos básicos do Pacote Office.</li>`,
                 projects_title: 'Projetos em Destaque', projects_all: 'Ver todos no GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>',
+                
                 proj1_title: 'Dashboard de Salários — Área de Dados',
                 proj1_desc: 'Dashboard interativo em Power BI para análise salarial detalhada no setor de dados, revelando tendências e insights.',
                 proj_view: 'Ver no GitHub',
+                
                 proj2_title: 'Lista de Presença Online — UNESA',
                 proj2_desc: 'Sistema web completo para controle de presença, utilizando Next.js, NestJS e Docker para uma solução moderna e conteinerizada.',
                 proj_view_2: 'Ver no GitHub',
-                <!-- proj_next_title: 'Seu próximo projeto aqui', proj_next_desc: 'Adicione mais cases conforme publicar no GitHub.',-->
+                
+                // NEW PROJECT PT
+                proj3_title: 'Desafio Backend — Voluntários',
+                proj3_desc: 'API RESTful desenvolvida para o desafio de voluntários, focada em organização, arquitetura backend e boas práticas.',
+                proj_view_3: 'Ver no GitHub',
+
+                proj_next_desc: 'Mais projetos em breve...',
                 github_title: 'Estatísticas do GitHub',
                 skills_title: 'Habilidades Técnicas',
                 skill_cat1: '<i class="fa-solid fa-chart-line mr-2 text-blue-500"></i>Análise de Dados & BI',
@@ -341,7 +369,7 @@
             'en': {
                 nav_about: 'About', nav_experience: 'Experience', nav_projects: 'Projects', nav_skills: 'Skills', nav_certifications: 'Certifications', nav_contact: 'Contact',
                 nav_about_mobile: 'About', nav_experience_mobile: 'Experience', nav_projects_mobile: 'Projects', nav_skills_mobile: 'Skills', nav_certifications_mobile: 'Certifications', nav_contact_mobile: 'Contact',
-                hero_description: 'Dynamic professional in <strong>Technical Support</strong>, <strong>Data Analysis</strong>, and <strong>Automation</strong>. Seeking junior opportunities in <strong>Data</strong>, <strong>QA</strong>, or <strong>Infra</strong>. Stack: Power BI, Python, SQL, Zabbix, Grafana.',
+                hero_description: 'Computer Science student with experience in Data Analysis and Automation. I transform data into insights with Python, SQL, and Power BI and am seeking my first opportunity as a junior in the Data field.',
                 hero_btn_contact: 'Get in Touch', hero_btn_projects: 'View Projects',
                 about_title: 'About Me',
                 about_desc: `With a solid background in IT infrastructure and technical support, I made a strategic decision to focus my career on <strong>Data Analysis</strong>. My passion is to transform raw data into insights that solve real business problems.<br><br>Today, I use <strong>Python, SQL, and Power BI</strong> to automate processes, extract and model data, and create interactive dashboards that support decision-making. I am seeking a junior opportunity where I can apply my problem-solving focus and grow in a data-driven environment.`,
@@ -353,13 +381,21 @@
                 exp3_role: 'IT Technician Intern',
                 exp3_desc: `<li>Preventive and corrective maintenance of computers.</li><li>Delivered basic courses on the Microsoft Office suite.</li>`,
                 projects_title: 'Featured Projects', projects_all: 'See all on GitHub <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>',
+                
                 proj1_title: 'Salary Dashboard — Data Area',
                 proj1_desc: 'Interactive Power BI dashboard for detailed salary analysis in the data sector, revealing trends and insights.',
                 proj_view: 'View on GitHub',
+                
                 proj2_title: 'Online Attendance List — UNESA',
                 proj2_desc: 'Complete web system for attendance control, using Next.js, NestJS, and Docker for a modern and containerized solution.',
                 proj_view_2: 'View on GitHub',
-                proj_next_title: 'Your next project here', proj_next_desc: 'Add more case studies as you publish them on GitHub.',
+                
+                // NEW PROJECT EN
+                proj3_title: 'Backend Challenge — Volunteers',
+                proj3_desc: 'RESTful API developed for the volunteer challenge, focused on backend architecture, organization, and best practices.',
+                proj_view_3: 'View on GitHub',
+
+                proj_next_desc: 'More projects coming soon...',
                 github_title: 'GitHub Stats',
                 skills_title: 'Technical Skills',
                 skill_cat1: '<i class="fa-solid fa-chart-line mr-2 text-blue-500"></i>Data Analysis & BI',
@@ -409,11 +445,28 @@
         }
         themeToggle.addEventListener('click', () => setTheme(root.classList.contains('dark') ? 'light' : 'dark'));
         
-        // --- MOBILE MENU ---
+        // --- MOBILE MENU (IMPROVED) ---
         const menuBtn = document.getElementById('menuBtn');
         const drawer = document.getElementById('drawer');
-        menuBtn.addEventListener('click', () => drawer.classList.toggle('hidden'));
-        drawer.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', () => drawer.classList.add('hidden')));
+        const menuIcon = menuBtn.querySelector('i');
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !drawer.classList.contains('max-h-0');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
+            drawer.classList.toggle('max-h-0');
+            drawer.classList.toggle('max-h-96');
+            drawer.classList.toggle('py-3');
+            
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-xmark');
+        });
+        drawer.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', () => {
+             menuBtn.setAttribute('aria-expanded', 'false');
+             drawer.classList.add('max-h-0');
+             drawer.classList.remove('max-h-96', 'py-3');
+             menuIcon.classList.remove('fa-xmark');
+             menuIcon.classList.add('fa-bars');
+        }));
 
         // --- SCROLLSPY (ACTIVE NAV LINK) ---
         const sections = document.querySelectorAll('section[id]');
@@ -439,15 +492,15 @@
         sr.reveal('#home > .container > div:last-child', { origin: 'right', delay: 100 });
         sr.reveal('section h2, .hover-card, #github-stats img, #experience article', { origin: 'bottom', interval: 100 });
         
-        // --- BACK TO TOP BUTTON ---
+        // --- BACK TO TOP BUTTON (IMPROVED) ---
         const toTop = document.getElementById('toTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
-                toTop.classList.remove('hidden');
-                toTop.classList.add('opacity-100');
+                toTop.classList.remove('opacity-0', 'invisible');
+                toTop.classList.add('opacity-100', 'visible');
             } else {
-                toTop.classList.remove('opacity-100');
-                toTop.classList.add('hidden');
+                toTop.classList.remove('opacity-100', 'visible');
+                toTop.classList.add('opacity-0', 'invisible');
             }
         });
         toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
